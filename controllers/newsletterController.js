@@ -30,13 +30,13 @@ exports.subscribe = async (req, res) => {
       to: email,
       from: {
         email: process.env.EMAIL_USER, // must be a verified sender in SendGrid
-        name: process.env.EMAIL_FROM_NAME || "Orphanage Foundation",
+        name: process.env.EMAIL_FROM_NAME || "Farm Ferry",
       },
       subject: "Welcome to Our Newsletter!",
       html: `
         <h2>Welcome to Our Family 💙</h2>
         <p>Thank you for subscribing to our newsletter! You'll receive updates on our latest projects, events, and activities.</p>
-        <p>– The Orphanage Team</p>
+        <p>– The Farm Ferry Team</p>
       `,
     };
     await sgMail.send(msg);
@@ -71,7 +71,7 @@ exports.sendNewsletter = async (req, res) => {
       to: subscribers.map((s) => s.email),
       from: {
         email: process.env.EMAIL_USER,
-        name: process.env.EMAIL_FROM_NAME || "Orphanage Foundation",
+        name: process.env.EMAIL_FROM_NAME || "Farm Ferry Team",
       },
       subject: title,
       html: `
